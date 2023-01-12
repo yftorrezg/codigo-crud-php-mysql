@@ -15,9 +15,7 @@ $row = mysqli_fetch_array($query); # ? seleciona todo de la consulta sql y lo gu
   <title> PAGINA ALUMNO</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/style.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 
 <body>
@@ -26,6 +24,7 @@ $row = mysqli_fetch_array($query); # ? seleciona todo de la consulta sql y lo gu
 
       <div class="col-md-3">
         <h1>Nueva novia?</h1>
+
         <form action="insertar.php" method="POST">
 
           <!-- aqui se ve el NAME -->
@@ -36,6 +35,7 @@ $row = mysqli_fetch_array($query); # ? seleciona todo de la consulta sql y lo gu
 
           <input type="submit" class="btn btn-primary">
         </form>
+
       </div>
 
       <div class="col-md-9">
@@ -53,26 +53,26 @@ $row = mysqli_fetch_array($query); # ? seleciona todo de la consulta sql y lo gu
 
           <tbody>
             <?php
-                        while ($row = mysqli_fetch_array($query)) {
-                        ?>
-            <!-- //? aqui se ve el echo de la variable row que es la que tiene la consulta sql y la variable que se le asigno. -->
-            <tr>
-              <th><?php echo $row['cod_estudiante'] ?></th>
-              <th><?php echo $row['dni'] ?></th>
-              <th><?php echo $row['nombres'] ?></th>
-              <th><?php echo $row['apellidos'] ?></th>
-              <th>
-                <a href="actualizar.php?id=<?php echo $row['cod_estudiante'] ?>" class="btn btn-info">
-                  Editar
-                </a>
-              </th>
-              <th>
-                <a href="delete.php?id=<?php echo $row['cod_estudiante'] ?>" class="btn btn-danger">Eliminar</a>
-              </th>
-            </tr>
+            while ($row = mysqli_fetch_array($query)) {
+            ?>
+              <!-- //? aqui se ve el echo de la variable row que es la que tiene la consulta sql y la variable que se le asigno. -->
+              <tr>
+                <th><?php echo $row['cod_estudiante'] ?></th>
+                <th><?php echo $row['dni'] ?></th>
+                <th><?php echo $row['nombres'] ?></th>
+                <th><?php echo $row['apellidos'] ?></th>
+                <th>
+                  <a href="actualizar.php?id=<?php echo $row['cod_estudiante'] ?>" class="btn btn-info">
+                    Editar
+                  </a>
+                </th>
+                <th>
+                  <a href="delete.php?id=<?php echo $row['cod_estudiante'] ?>" class="btn btn-danger">Eliminar</a>
+                </th>
+              </tr>
             <?php
-                        }
-                        ?>
+            }
+            ?>
           </tbody>
         </table>
       </div>
