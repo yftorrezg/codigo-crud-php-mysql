@@ -1,11 +1,11 @@
 <?php
-include("conexion.php");
-$con = conectar();
+  include("conexion.php");
+  $con = conectar();
 
-$sql = "SELECT *  FROM alumno";
-$query = mysqli_query($con, $sql); # ejecuta la consulta sql y la guarda en la variable query.
+  $sql = "SELECT *  FROM alumno";
+  $query = mysqli_query($con, $sql); # ejecuta la consulta sql y la guarda en la variable query.
 
-$row = mysqli_fetch_array($query); # ? seleciona todo de la consulta sql y lo guarda en la variable row.   
+  $row = mysqli_fetch_array($query); # ? seleciona todo de la consulta sql y lo guarda en la variable row.   
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +28,7 @@ $row = mysqli_fetch_array($query); # ? seleciona todo de la consulta sql y lo gu
         <form action="insertar.php" method="POST">
 
           <!-- aqui se ve el NAME -->
-          <input type="text" class="form-control mt-4" name="numero" placeholder="codigo">
+          <input type="hidden" class="form-control mt-4" name="numero" placeholder="codigo">
           <input type="text" class="form-control mt-4" name="dni" placeholder="Dni">
           <input type="text" class="form-control mt-4" name="nombres" placeholder="Nombres">
           <input type="text" class="form-control mt-4 mb-4" name="apellidos" placeholder="Apellidos">
@@ -40,6 +40,7 @@ $row = mysqli_fetch_array($query); # ? seleciona todo de la consulta sql y lo gu
 
       <div class="col-md-9">
         <table class="table">
+          
           <thead class="table-success table-striped">
             <tr>
               <th>Codigo</th>
@@ -53,14 +54,14 @@ $row = mysqli_fetch_array($query); # ? seleciona todo de la consulta sql y lo gu
 
           <tbody>
             <?php
-            while ($row = mysqli_fetch_array($query)) {
+              while ($row = mysqli_fetch_array($query)) {
             ?>
               <!-- //? aqui se ve el echo de la variable row que es la que tiene la consulta sql y la variable que se le asigno. -->
               <tr>
-                <th><?php echo $row['cod_estudiante'] ?></th>
-                <th><?php echo $row['dni'] ?></th>
-                <th><?php echo $row['nombres'] ?></th>
-                <th><?php echo $row['apellidos'] ?></th>
+                <th>  <?php echo $row['cod_estudiante'] ?>  </th>
+                <th>  <?php echo $row['dni'] ?>             </th>
+                <th>  <?php echo $row['nombres'] ?>         </th>
+                <th>  <?php echo $row['apellidos'] ?>       </th>
                 <th>
                   <a href="actualizar.php?id=<?php echo $row['cod_estudiante'] ?>" class="btn btn-info">
                     Editar
@@ -71,11 +72,12 @@ $row = mysqli_fetch_array($query); # ? seleciona todo de la consulta sql y lo gu
                 </th>
               </tr>
             <?php
-            }
+              }
             ?>
           </tbody>
         </table>
       </div>
+
     </div>
   </div>
 </body>

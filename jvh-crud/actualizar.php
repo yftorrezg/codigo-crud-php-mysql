@@ -1,13 +1,13 @@
 <?php
-include("conexion.php");
-$con = conectar();
+  include("conexion.php");
+  $con = conectar();
 
-$id = $_GET['id']; // ? r: se obtiene el id del alumno a actualizar, desde la url de la página alumno.php
+  $id = $_GET['id']; // ? r: se obtiene el id del alumno a actualizar, desde la url de la página alumno.php
 
-$sql = "SELECT * FROM alumno WHERE cod_estudiante='$id'";
-$query = mysqli_query($con, $sql);
+  $sql = "SELECT * FROM alumno WHERE cod_estudiante='$id'";
+  $query = mysqli_query($con, $sql);
 
-$row = mysqli_fetch_array($query);
+  $row = mysqli_fetch_array($query);
 ?>
 
 <!DOCTYPE html>
@@ -26,11 +26,12 @@ $row = mysqli_fetch_array($query);
 <body>
   <div class="container mt-5">
     <div class="row">
+
       <div class="col-4"></div>
       <div class="col-4 mt-5">
         <h1>Actualizar datos</h1>
 
-        <form action="update.php" method="POST">
+        <form action="update.php" method="POST"> <!-- IMPORTANT  -->
 
           <input type="hidden" name="cod_estudiante" value="<?php echo $row['cod_estudiante']  ?>">
 
@@ -44,6 +45,7 @@ $row = mysqli_fetch_array($query);
         </form>
       </div>
       <div class="col-4"></div>
+
     </div>
 
   </div>
