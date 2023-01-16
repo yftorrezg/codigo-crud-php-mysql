@@ -28,7 +28,7 @@
         <form action="insertar.php" method="POST">
 
           <!-- aqui se ve el NAME -->
-          <input type="hidden" class="form-control mt-4" name="numero" placeholder="codigo">
+          <input type="number" class="form-control mt-4" name="numero" placeholder="codigo">
           <input type="text" class="form-control mt-4" name="dni" placeholder="Dni">
           <input type="text" class="form-control mt-4" name="nombres" placeholder="Nombres">
           <input type="text" class="form-control mt-4 mb-4" name="apellidos" placeholder="Apellidos">
@@ -36,11 +36,11 @@
           <input type="submit" class="btn btn-primary">
         </form>
 
-      </div>
+      </div> <!-- col3 -->
 
       <div class="col-md-9">
         <table class="table">
-          
+
           <thead class="table-success table-striped">
             <tr>
               <th>Codigo</th>
@@ -58,10 +58,10 @@
             ?>
               <!-- //? aqui se ve el echo de la variable row que es la que tiene la consulta sql y la variable que se le asigno. -->
               <tr>
-                <th>  <?php echo $row['cod_estudiante'] ?>  </th>
-                <th>  <?php echo $row['dni'] ?>             </th>
-                <th>  <?php echo $row['nombres'] ?>         </th>
-                <th>  <?php echo $row['apellidos'] ?>       </th>
+                <th> <?php echo $row['cod_estudiante'] ?> </th>
+                <th> <?php echo $row['dni'] ?> </th>
+                <th> <?php echo $row['nombres'] ?> </th>
+                <th> <?php echo $row['apellidos'] ?> </th>
                 <th>
                   <a href="actualizar.php?id=<?php echo $row['cod_estudiante'] ?>" class="btn btn-info">
                     Editar
@@ -75,11 +75,12 @@
               }
             ?>
           </tbody>
-        </table>
-      </div>
 
-    </div>
-  </div>
+        </table>
+      </div> <!-- col 9 -->
+
+    </div> <!-- row -->
+  </div><!-- container -->
 </body>
 
 </html>
